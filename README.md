@@ -37,7 +37,7 @@ Several core scripts power the project. It’s important to understand these scr
 
 Take the time to review these scripts to learn how actions, objects, and AI interactions are controlled.
 
-### PickableObject
+### 'PickableObject'
 
 ## Overview
 
