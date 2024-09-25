@@ -1,6 +1,6 @@
 # Falcon-CareUp_Grace_AI
 
-**Falcon-CareUp_Grace_AI** is a Unity project designed for medical and hospital-related purposes. The project features an AI character, **GRACE AI**, which interacts with players by answering their questions accurately. In addition to AI interactions, each tied to specific in-game actions and points. The project is developed for **WebGL** and **VR**, with a primary focus on VR experiences.
+**Falcon-CareUp_Grace_AI** is a Unity project designed for medical and hospital-related purposes. The project features an AI character, **GRACE AI**, which interacts with players by answering their questions accurately. In addition to AI interactions, each tied to specific in-game actions and points. The project is developed for  **VR**, with a primary focus on VR experiences.
 
 ## Project Description
 
@@ -37,6 +37,87 @@ Several core scripts power the project. It’s important to understand these scr
 
 Take the time to review these scripts to learn how actions, objects, and AI interactions are controlled.
 
+### 2. `ActionModule_ActionTrigger`
+
+- **Purpose:** This script triggers various actions based on player input and conditions in the VR environment.
+- **Key Features:**
+  - Connects to an `ActionHandler` to manage actions based on player interactions.
+  - Supports both left and right-hand triggers, allowing flexible control schemes.
+  - Checks conditions before executing actions, ensuring that the right requirements are met.
+  - Utilizes an `actionNumberLimit` to manage how many times an action can be triggered.
+  - Contains methods to emit triggers and handle various action modules (e.g., animations, audio).
+- **Important Functions:**
+  - `ReceveTriggerAction(bool isLeftHand, TriggerHandAction tAction)`: Receives input from the player's hands and checks for confirmation.
+  - `CheckTriggerConfirmation()`: Validates whether all conditions for triggering an action are met.
+  - `EmitTrigger()`: Executes the action if the conditions are confirmed.
+  - `AttemptTrigger()`: Tries to trigger the action based on the player's input.
+
+### 3. `ActionModule_ActionExpectant`
+
+- **Purpose:** This script manages the state of an action that is expected to occur based on certain conditions and player interactions.
+- **Key Features:**
+  - Tracks whether an action is currently active (`isCurrentAction`).
+  - Checks if the action can be executed based on conditions defined in child components.
+  - Interfaces with the `ActionHandler` to verify the validity of the action based on its type and associated objects.
+- **Important Functions:**
+  - `TryExecuteAction()`: Attempts to trigger any child action modules that meet the execution conditions.
+  - `UpdateAction()`: Updates the state of the action based on its type and conditions.
+  - `UpdateIsCurrentActionValue(bool value)`: Sets the current action state.
+  - `Update()`: Continuously checks and updates the current action state based on defined conditions.
+### 4. `ActionModule_ShowHideDelete`
+
+- **Purpose:** This script is responsible for controlling the visibility and deletion of specified game objects within the Unity scene. It allows for dynamic interaction with objects based on player actions or other game events.
+
+- **Key Features:**
+  - Can show or hide multiple objects based on specified conditions.
+  - Allows for the deletion of objects from the scene.
+  - Supports a timeout feature to delay the execution of show/hide/delete actions.
+  - Integrates with player object interactions, allowing the manipulation of objects currently held by the player.
+
+- **Important Variables:**
+  - `toShow` (bool): Determines whether the specified objects should be shown or hidden.
+  - `toDelete` (bool): Indicates if the specified objects should be deleted from the scene.
+  - `waitTime` (float): Specifies a delay before executing the show/hide/delete actions.
+  - `ControlObjectName` (string): The name of the control object that dictates the action.
+  - `ObjNames` (List<string>): A list of object names to be shown, hidden, or deleted.
+  - `meshRenderer` (bool): Indicates whether to manipulate the MeshRenderer components of the objects.
+
+- **Important Functions:**
+  - `Update()`: Checks for a timeout and executes the action when the wait time is reached.
+  - `StartTimeout()`: Initiates the timeout sequence, executing the action immediately if no wait time is set.
+  - `Proceed()`: Executes the show/hide/delete actions based on the control object and specified object names.
+  - `ShowHideObj(GameObject _obj)`: Manages the visibility and deletion of a specified object, including enabling or disabling its MeshRenderer if applicable.
+
+### Usage Example:
+1. Attach the `ActionModule_ShowHideDelete` script to a GameObject in your scene.
+2. Configure the `toShow`, `toDelete`, `waitTime`, `ControlObjectName`, `ObjNames`, and `meshRenderer` properties in the Inspector.
+3. Call `StartTimeout()` to begin the timeout sequence if needed, or the actions will execute automatically based on the wait time.
+
+### 5. `ShowHideObjects`
+
+- **Purpose:** This script manages the visibility of a list of game objects in Unity. It allows for showing, hiding, and toggling the active state of objects, facilitating dynamic UI interactions and gameplay events.
+
+- **Key Features:**
+  - Supports showing or hiding specific objects by name or all objects in the list.
+  - Optionally manipulates MeshRenderer components for finer control over object visibility.
+  - Integrates with a GameUIVR component to update UI highlights when objects are shown or hidden.
+  - Provides utility functions to retrieve objects by name and check for the presence of specific objects in the list.
+
+- **Important Variables:**
+  - `hidenObjects` (List<GameObject>): A list of game objects that can be shown or hidden.
+  - `gameUIVR` (GameUIVR): A reference to the GameUIVR component for UI updates.
+
+- **Important Functions:**
+  - `_show(string _name, bool toShow, bool meshRenderer = false)`: Shows or hides a specific object by name or all objects in the list. If `meshRenderer` is true, it manipulates the MeshRenderer components instead of just setting the active state.
+  - `GetObjectByName(string _name)`: Returns the game object with the specified name from the `hidenObjects` list, or null if it doesn't exist.
+  - `HasNeeded(string str)`: Checks if the specified object name exists in the `hidenObjects` list.
+  - `_toggle(string _name)`: Toggles the active state of the object with the specified name in the `hidenObjects` list.
+
+### Usage Example:
+1. Attach the `ShowHideObjects` script to a GameObject in your scene.
+2. Populate the `hidenObjects` list with the objects you want to control.
+3. Call `_show("objectName", true)` to show an object, `_show("objectName", false)` to hide it, or `_toggle("objectName")` to switch its visibility state.
+4. Use `GetObjectByName("objectName")` to retrieve an object for further manipulation or checks.
 ### 5. Hint UI Functionality:
 
 - The project includes a **Hint UI** that provides guidance and information to users.
@@ -47,14 +128,14 @@ Take the time to review these scripts to learn how actions, objects, and AI inte
 
 - **GRACE AI**: A fully interactive AI character capable of answering player questions accurately.
 - **Hospital Scenarios**: Realistic hospital environments and actions tied to specific points.
-- **WebGL and VR Compatibility**: The project is being developed for both WebGL and VR, with a focus on virtual reality for enhanced immersion.
+- **VR Compatibility**: The project is being developed for  VR, with a focus on virtual reality for enhanced immersion.
 
 ## Installation
 
 ### Prerequisites
 
 - Unity Version: **2022.2.13f1**
-- Tools: Visual Studio, Git, WebGL/VR setup
+- Tools: Visual Studio, Git, VR setup
 
 ### Clone the Repository
 ```bash
