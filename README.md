@@ -1,6 +1,6 @@
 # Falcon-CareUp_Grace_AI
 
-**Falcon-CareUp_Grace_AI** is a Unity project designed for medical and hospital-related purposes. The project features an AI character, **GRACE AI**, which interacts with players by answering their questions accurately. In addition to AI interactions, the project incorporates various hospital scenarios and features, each tied to specific in-game actions and points. The project is developed for **WebGL** and **VR**, with a primary focus on VR experiences.
+**Falcon-CareUp_Grace_AI** is a Unity project designed for medical and hospital-related purposes. The project features an AI character, **GRACE AI**, which interacts with players by answering their questions accurately. In addition to AI interactions, each tied to specific in-game actions and points. The project is developed for **WebGL** and **VR**, with a primary focus on VR experiences.
 
 ## How to Go Through the Project
 
@@ -9,12 +9,12 @@ Follow these steps to get a clear understanding of how to navigate and use the *
 ### 1. Understand the Actions System:
 
 - Start by reviewing the `ActionManager` script. This script outlines the various actions that are available in the project.
-- Each action is connected to certain hospital functions, and understanding how these actions work is crucial for the overall project.
+- Each action is connected to points, and understanding how these actions work is crucial for the overall project.
 
 ### 2. Explore the XML File for Actions:
 
 - The project uses an XML file named `Actions_Medicine_Mouth_Updated.xml` to manage all actions.
-- You can find this file in the following path: `Assets/Resources/XML/`.
+- You can find this file in the following path: `Assets/Resources/XML/Actions_Medicine_Mouth_Updated`.
 - The XML file defines the actions, and exploring it will give you deeper insight into the project’s functionality.
 
 ### 3. Custom OpenXR Components:
@@ -39,7 +39,7 @@ Take the time to review these scripts to learn how actions, objects, and AI inte
 - This UI is controlled by the `Hint_Functionality` script, which handles how and when hints are displayed.
 ## Project Description
 
-The **Falcon-CareUp_Grace_AI** project focuses on creating a medical application that simulates a hospital environment. The standout feature of the project is **GRACE AI**, a smart assistant that provides players with accurate responses to medical or hospital-related queries. The project includes multiple hospital scenarios and a points-based action system to simulate real-world interactions.
+The **Falcon-CareUp_Grace_AI** project focuses on creating a medical application that simulates a hospital environment. The standout feature of the project is **GRACE AI**, a smart assistant that provides players with accurate responses to medical or hospital-related queries. The project include  a points-based action.
 
 ## Features
 
