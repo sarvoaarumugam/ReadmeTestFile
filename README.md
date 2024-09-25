@@ -37,7 +37,7 @@ Several core scripts power the project. It’s important to understand these scr
 
 Take the time to review these scripts to learn how actions, objects, and AI interactions are controlled.
 
-### 2. `ActionModule_ActionTrigger`
+###  `ActionModule_ActionTrigger`
 
 - **Purpose:** This script triggers various actions based on player input and conditions in the VR environment.
 - **Key Features:**
@@ -52,7 +52,7 @@ Take the time to review these scripts to learn how actions, objects, and AI inte
   - `EmitTrigger()`: Executes the action if the conditions are confirmed.
   - `AttemptTrigger()`: Tries to trigger the action based on the player's input.
 
-### 3. `ActionModule_ActionExpectant`
+###  `ActionModule_ActionExpectant`
 
 - **Purpose:** This script manages the state of an action that is expected to occur based on certain conditions and player interactions.
 - **Key Features:**
@@ -64,7 +64,7 @@ Take the time to review these scripts to learn how actions, objects, and AI inte
   - `UpdateAction()`: Updates the state of the action based on its type and conditions.
   - `UpdateIsCurrentActionValue(bool value)`: Sets the current action state.
   - `Update()`: Continuously checks and updates the current action state based on defined conditions.
-### 4. `ActionModule_ShowHideDelete`
+###  `ActionModule_ShowHideDelete`
 
 - **Purpose:** This script is responsible for controlling the visibility and deletion of specified game objects within the Unity scene. It allows for dynamic interaction with objects based on player actions or other game events.
 
@@ -93,7 +93,7 @@ Take the time to review these scripts to learn how actions, objects, and AI inte
 2. Configure the `toShow`, `toDelete`, `waitTime`, `ControlObjectName`, `ObjNames`, and `meshRenderer` properties in the Inspector.
 3. Call `StartTimeout()` to begin the timeout sequence if needed, or the actions will execute automatically based on the wait time.
 
-### 5. `ShowHideObjects`
+###  `ShowHideObjects`
 
 - **Purpose:** This script manages the visibility of a list of game objects in Unity. It allows for showing, hiding, and toggling the active state of objects, facilitating dynamic UI interactions and gameplay events.
 
@@ -123,6 +123,41 @@ Take the time to review these scripts to learn how actions, objects, and AI inte
 - The project includes a **Hint UI** that provides guidance and information to users.
 - This UI is controlled by the `Hint_Functionality` script, which handles how and when hints are displayed.
 
+### `Hint_Functionality`
+
+- **Purpose:** This script manages the display of hint UI elements within a Unity game. It shows hints related to the current action and allows users to interact with them via buttons. The hints can automatically hide based on specific conditions, such as hand position.
+
+- **Key Features:**
+  - Displays hints with associated images for different actions.
+  - Shows and hides hints based on user interaction and hand position.
+  - Updates hints dynamically when actions are completed through the `ActionManager`.
+  - Provides functionality for opening and closing hints via UI buttons.
+
+- **Important Variables:**
+  - `hint_UI` (GameObject): The UI element that displays the hint.
+  - `hintButton_UI` (GameObject): The UI element for the hint button.
+  - `image` (Image): The image component used to display the hint sprite.
+  - `totalActions` (int): Total number of actions for which hints are available.
+  - `handTransform` (Transform): The transform of the hand to monitor for position changes.
+  - `lowerRange` (float) / `higherRange` (float): Range values to determine when to hide the hint.
+  - `openButton`, `openImage`, `closeButton`, `closeImage` (GameObject): UI elements for open and close button states.
+  - `sprites` (Sprite[]): An array of sprites corresponding to each action hint.
+  - `actionManager` (ActionManager): Reference to the action manager that tracks current actions.
+  - `indexToHide` (int): Index of the action that, when completed, hides the hint UI.
+
+- **Important Functions:**
+  - `ShowHint()`: Activates the hint UI and updates it to show the current action's sprite.
+  - `HideHint()`: Deactivates the hint UI and restores the button states.
+  - `UpdateHint(int index)`: Updates the displayed hint based on the current action index and hides it if it matches the `indexToHide`.
+  - `CheckToHide()`: A coroutine that checks hand position and hides the hint UI if the hand goes outside the specified range.
+  - `HideHintWithButtons()`: Hides the hint and associated button UI when called.
+
+### Usage Example:
+1. Attach the `Hint_Functionality` script to a GameObject in your scene that manages hints.
+2. Set up references for `hint_UI`, `hintButton_UI`, and other serialized fields in the Unity Inspector.
+3. Ensure that the `ActionManager` is correctly set up to trigger the `OnActionComplete` event.
+4. Call `ShowHint()` to display the hint UI when appropriate, and `HideHint()` to hide it.
+5. Use the `UpdateHint(int index)` method to dynamically update the hint based on the current action.
 
 ## Features
 
