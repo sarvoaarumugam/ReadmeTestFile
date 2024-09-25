@@ -2,6 +2,10 @@
 
 **Falcon-CareUp_Grace_AI** is a Unity project designed for medical and hospital-related purposes. The project features an AI character, **GRACE AI**, which interacts with players by answering their questions accurately. In addition to AI interactions, each tied to specific in-game actions and points. The project is developed for **WebGL** and **VR**, with a primary focus on VR experiences.
 
+## Project Description
+
+The **Falcon-CareUp_Grace_AI** project focuses on creating a medical application that simulates a hospital environment. The standout feature of the project is **GRACE AI**, a smart assistant that provides players with accurate responses to medical or hospital-related queries. The project include  a points-based action.
+
 ## How to Go Through the Project
 
 Follow these steps to get a clear understanding of how to navigate and use the **Falcon-CareUp_Grace_AI** project:
@@ -37,9 +41,7 @@ Take the time to review these scripts to learn how actions, objects, and AI inte
 
 - The project includes a **Hint UI** that provides guidance and information to users.
 - This UI is controlled by the `Hint_Functionality` script, which handles how and when hints are displayed.
-## Project Description
 
-The **Falcon-CareUp_Grace_AI** project focuses on creating a medical application that simulates a hospital environment. The standout feature of the project is **GRACE AI**, a smart assistant that provides players with accurate responses to medical or hospital-related queries. The project include  a points-based action.
 
 ## Features
 
