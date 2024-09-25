@@ -29,13 +29,45 @@ Follow these steps to get a clear understanding of how to navigate and use the *
 ### 4. Important Scripts:
 
 Several core scripts power the project. It’s important to understand these scripts to fully grasp the project’s architecture:
-   - `ActionManager`
+   - `PickableObject`
    - `ActionModule_ActionTrigger`
    - `ActionModule_ActionExpectant`
    - `ActionModule_ShowHideDelete`
    - `ShowHideObjects`
 
 Take the time to review these scripts to learn how actions, objects, and AI interactions are controlled.
+
+### PickableObject
+
+## Overview
+
+The `PickableObject` class is part of a Unity project designed for handling pickable objects in a virtual reality (VR) environment. This script allows players to interact with objects by picking them up, dropping them, and attaching them to mounting points. It also supports visual effects such as outlines and animations during these interactions.
+
+## Features
+
+- **Pick and Drop**: Players can pick up and drop objects smoothly with customizable transitions.
+- **Mounting**: Objects can be attached to predefined mounting points within the scene.
+- **Visual Feedback**: Objects can display different meshes for in-hand and out-of-hand states, along with outline effects.
+- **Teleportation Support**: Handles teleportation of objects when dropped to specified locations.
+- **Unity Events**: Provides Unity events for customizable interactions when objects are picked up or dropped.
+
+## Usage
+
+1. **Setup**: 
+   - Attach the `PickableObject` script to any GameObject that you want to be pickable.
+   - Assign meshes to `inHandMeshes` and `outHandMeshes` to control the object's appearance based on its state.
+   - Set the `dropAnchor` to define where the object should drop when released.
+
+2. **Interaction**:
+   - Use the VR controller to pick up objects. The script manages the physics interactions and visual state changes.
+   - Customize the pickup behavior by configuring the `pinchPickupTrigger` and `pinchMountTrigger` for additional interaction methods.
+
+3. **Events**:
+   - Utilize `onPickedUpObject` and `onFirstPickObject` to trigger any custom behaviors when objects are picked up.
+
+4. **Outline**:
+   - The script automatically generates outlines for pickable objects, which can be customized in the `GenerateOutline` method.
+
 
 ###  `ActionModule_ActionTrigger`
 
