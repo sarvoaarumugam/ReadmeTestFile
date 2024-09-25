@@ -2,16 +2,41 @@
 
 **Falcon-CareUp_Grace_AI** is a Unity project designed for medical and hospital-related purposes. The project features an AI character, **GRACE AI**, which interacts with players by answering their questions accurately. In addition to AI interactions, the project incorporates various hospital scenarios and features, each tied to specific in-game actions and points. The project is developed for **WebGL** and **VR**, with a primary focus on VR experiences.
 
-## Table of Contents
-1. [Project Description](#project-description)
-2. [Features](#features)
-3. [Installation](#installation)
-4. [Scenes](#scenes)
-5. [Controls](#controls)
-6. [Dependencies](#dependencies)
-7. [Known Issues](#known-issues)
-8. [License](#license)
+## How to Go Through the Project
 
+Follow these steps to get a clear understanding of how to navigate and use the **Falcon-CareUp_Grace_AI** project:
+
+### 1. Understand the Actions System:
+
+- Start by reviewing the `ActionManager` script. This script outlines the various actions that are available in the project.
+- Each action is connected to certain hospital functions, and understanding how these actions work is crucial for the overall project.
+
+### 2. Explore the XML File for Actions:
+
+- The project uses an XML file named `Actions_Medicine_Mouth_Updated.xml` to manage all actions.
+- You can find this file in the following path: `Assets/Resources/XML/`.
+- The XML file defines the actions, and exploring it will give you deeper insight into the project’s functionality.
+
+### 3. Custom OpenXR Components:
+
+- Although **OpenXR** is integrated, the project primarily relies on custom-built components rather than standard OpenXR features.
+- These custom components are crucial for handling VR interactions, providing greater control and flexibility in the VR environment.
+
+### 4. Important Scripts:
+
+Several core scripts power the project. It’s important to understand these scripts to fully grasp the project’s architecture:
+   - `ActionManager`
+   - `ActionModule_ActionTrigger`
+   - `ActionModule_ActionExpectant`
+   - `ActionModule_ShowHideDelete`
+   - `ShowHideObjects`
+
+Take the time to review these scripts to learn how actions, objects, and AI interactions are controlled.
+
+### 5. Hint UI Functionality:
+
+- The project includes a **Hint UI** that provides guidance and information to users.
+- This UI is controlled by the `Hint_Functionality` script, which handles how and when hints are displayed.
 ## Project Description
 
 The **Falcon-CareUp_Grace_AI** project focuses on creating a medical application that simulates a hospital environment. The standout feature of the project is **GRACE AI**, a smart assistant that provides players with accurate responses to medical or hospital-related queries. The project includes multiple hospital scenarios and a points-based action system to simulate real-world interactions.
