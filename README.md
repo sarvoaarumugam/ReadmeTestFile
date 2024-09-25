@@ -29,6 +29,7 @@ Follow these steps to get a clear understanding of how to navigate and use the *
 ### 4. Important Scripts:
 
 Several core scripts power the project. It’s important to understand these scripts to fully grasp the project’s architecture:
+   - `ActionManager`
    - `PickableObject`
    - `ActionModule_ActionTrigger`
    - `ActionModule_ActionExpectant`
@@ -36,6 +37,28 @@ Several core scripts power the project. It’s important to understand these scr
    - `ShowHideObjects`
 
 Take the time to review these scripts to learn how actions, objects, and AI interactions are controlled.
+
+### `ActionManager`
+
+## Overview
+The `ActionManager` script is a core component of the project, responsible for managing and controlling all actions within the application. It serves as the central hub for action execution, determining what actions to perform and when based on a defined index.
+
+## Features
+- **Action Management**: The script contains a comprehensive list of actions that can be executed within the application.
+- **Index-based Control**: Actions are executed according to an index, allowing for precise control over the order and timing of each action.
+- **Integration with XML Files**: The `ActionManager` interacts with XML files, enabling dynamic action loading and configuration.
+
+## Structure
+- The script consists of approximately 3000 lines of code, encompassing all functionalities related to action management.
+- It works in conjunction with other XML files to define the actions available in the application.
+
+## Usage
+To utilize the `ActionManager`, ensure that the script is properly integrated with the main application and that the XML configuration files are set up accordingly. The index system will dictate the execution flow of actions, making it crucial to understand the structure of the defined actions.
+
+## Conclusion
+The `ActionManager` is essential for maintaining an organized and efficient action execution system in the project. Its ability to manage actions based on an index provides flexibility and control, making it a vital part of the application architecture.
+
+
 
 ### `PickableObject`
 
